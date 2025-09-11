@@ -23,7 +23,7 @@ while True:
     screen.fill("white")
     #screen.blit(background, (0,0))
 
-    if racecar_xpos > 1650:
+    if racecar_xpos > 1660:
         racecar_xpos = 0
     racecar_xpos += 3
     screen.blit(race_car,(racecar_xpos,100))
