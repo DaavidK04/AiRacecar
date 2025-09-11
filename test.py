@@ -7,12 +7,19 @@ pygame.display.set_caption("Car")
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 50)
 
-race_car = pygame.image.load("res/racecar_sprite.png").convert_alpha()
-race_car = pygame.transform.scale(race_car, (64, 64))
+
 background = pygame.image.load("res/background.png").convert_alpha()
+background = pygame.transform.scale(background, (1600, 800))
 text_surface = font.render("Fitness: ", False, "Black")
 
-racecar_xpos = 550
+
+race_car = pygame.image.load("res/racecar_sprite.png").convert_alpha()
+race_car = pygame.transform.scale(race_car, (64, 64))
+
+#racecar_xpos = 550
+#racecar_ypos = 100
+
+racecar_rect = race_car.get_rect(midbottom  = (80, 300))
 
 while True:
     for event in pygame.event.get():
@@ -20,13 +27,13 @@ while True:
             pygame.quit()
             exit()
 
-    screen.fill("white")
-    #screen.blit(background, (0,0))
+    
+    # screen.fill("white")
+    screen.blit(background, (0,0))
 
-    if racecar_xpos > 1670:
-        racecar_xpos = 0
-    racecar_xpos += 3
-    screen.blit(race_car,(racecar_xpos,100))
+    screen.blit(race_car, racecar_rect)
+    racecar_rect.left += 1
+    
         
     screen.blit(text_surface, (0, 0))
 
