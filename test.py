@@ -8,11 +8,12 @@ clock = pygame.time.Clock()
 font = pygame.font.Font(None, 50)
 
 
-background_srfc = pygame.image.load("res/background.png").convert_alpha()
+background_srfc = pygame.image.load("res/background2.png").convert_alpha()
 background_srfc = pygame.transform.scale(background_srfc, (1600, 800))
 text_srfc = font.render("Fitness: ", False, "Black")
 
-tyre_srfc = pygame.image.load("res/tyre.png").convert_alpha()
+tyre_srfc = pygame.image.load("res/bettertyre.png").convert_alpha()
+tyre_srfc = pygame.transform.scale(tyre_srfc, (64, 64))
 
 
 
@@ -33,6 +34,7 @@ while True:
     
     # screen.fill("white")
     screen.blit(background_srfc, (0,0))
+    screen.blit(tyre_srfc, (600, 175))
 
     screen.blit(racecar_srfc, racecar_rect)
     racecar_rect.left += 1
