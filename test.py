@@ -2,7 +2,7 @@ import pygame
 from sys import exit
 
 pygame.init()
-screen = pygame.display.set_mode((1600, 800))
+screen = pygame.display.set_mode((1600, 800), RESIZABLE)
 pygame.display.set_caption("Car")
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 50)
@@ -40,8 +40,10 @@ while True:
 
     pygame.draw.rect(screen, "blue", tyre_rect, 1)
     screen.blit(racecar_srfc, racecar_rect)
-    
-    racecar_rect.x += 0.5
+    if racecar_rect.colliderect(tyre_rect):
+        racecar_rect.x = 0
+    else:
+        racecar_rect.x += 0.5
         
     screen.blit(text_srfc, (0, 0))
 
