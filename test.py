@@ -2,7 +2,7 @@ import pygame
 from sys import exit
 
 pygame.init()
-screen = pygame.display.set_mode((1600, 800), RESIZABLE)
+screen = pygame.display.set_mode((1600, 800))
 pygame.display.set_caption("Car")
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 50)
@@ -40,13 +40,31 @@ while True:
 
     pygame.draw.rect(screen, "blue", tyre_rect, 1)
     screen.blit(racecar_srfc, racecar_rect)
-    if racecar_rect.colliderect(tyre_rect):
-        racecar_rect.x = 0
-    else:
-        racecar_rect.x += 0.5
+    # if racecar_rect.colliderect(tyre_rect):
+    #     racecar_rect.x = 0
+    # else:
+    #     racecar_rect.x += 0.5
         
     screen.blit(text_srfc, (0, 0))
+    
+    #print(racecar_rect.colliderect(tyre_rect))
+    # mouse_pos = pygame.mouse.get_pos()
+    # if racecar_rect.collidepoint((mouse_pos)):
+    #     print(pygame.mouse.get_pressed())
+    # else:
+    #     print("no collision")
+    
+    keys = pygame.key.get_pressed()
 
-    print(racecar_rect.colliderect(tyre_rect))
+    if keys[pygame.K_RIGHT]:
+        racecar_rect.x += 3
+    if keys[pygame.K_LEFT]:
+        racecar_rect.x -= 3
+    if keys[pygame.K_UP]:
+        racecar_rect.y -= 3
+    if keys[pygame.K_DOWN]:
+        racecar_rect.y += 3
+
+
     pygame.display.update()
     clock.tick(60)
