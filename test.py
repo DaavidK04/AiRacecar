@@ -12,19 +12,18 @@ background_srfc = pygame.image.load("res/background2.png").convert_alpha()
 background_srfc = pygame.transform.scale(background_srfc, (1600, 800))
 text_srfc = font.render("Fitness: ", False, "Black")
 
-tyre_srfc = pygame.image.load("res/bettertyre.png").convert_alpha()
+tyre_srfc = pygame.image.load("res/tyre_final.png").convert_alpha()
 tyre_srfc = pygame.transform.scale(tyre_srfc, (64, 64))
 tyre_rect = tyre_srfc.get_rect(center=(600, 300))
+tyre_rect.inflate_ip(-16 , -20)
 
 
-racecar_srfc = pygame.image.load("res/racecar_sprite.png").convert_alpha()
+racecar_srfc = pygame.image.load("res/racecar_final.png").convert_alpha()
 racecar_srfc = pygame.transform.scale(racecar_srfc, (64, 64))
-
-#racecar_xpos = 550
-#racecar_ypos = 100
-
 racecar_rect = racecar_srfc.get_rect(center=(400, 300))
-racecar_rect.inflate_ip(-18, -4)
+racecar_rect.inflate_ip(-36, -12)
+
+
 
 while True:
     for event in pygame.event.get():
@@ -33,8 +32,9 @@ while True:
             exit()
 
     
-    # screen.fill("white")
+    
     screen.blit(background_srfc, (0,0))
+
     screen.blit(tyre_srfc, tyre_rect)
     pygame.draw.rect(screen, "red", racecar_rect, 1)
 
