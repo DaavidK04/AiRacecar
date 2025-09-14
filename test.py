@@ -28,7 +28,6 @@ car_sprites = {
     "right": (racecar_right_srfc, (-12, -36)), 
     "down": (racecar_down_srfc, (-36, -12)),
     "left": (racecar_left_srfc, (-12, -36)),
-    "schraeg": (pygame.transform.rotate(racecar_right_srfc, -20), (-12, -36))
 }
 
 direction = "right"
@@ -56,10 +55,8 @@ while True:
     if keys[pygame.K_DOWN]:
         direction = "down"
         racecar_rect.y += 2
-    if keys[pygame.K_1]:
-        pygame.transform.rotate(current_srfc, 2)
 
-    #current_srfc, hitbox_adjust = car_sprites[direction]
+    current_srfc, hitbox_adjust = car_sprites[direction]
 
     center = racecar_rect.center
     racecar_rect = current_srfc.get_rect(center=center)
