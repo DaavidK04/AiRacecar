@@ -46,18 +46,20 @@ while True:
 
     if keys[pygame.K_RIGHT]:
         direction = "right"
-        racecar_rect.x += 3
+        racecar_rect.x += 2
     if keys[pygame.K_LEFT]:
         direction = "left"
-        racecar_rect.x -= 3
+        racecar_rect.x -= 2
     if keys[pygame.K_UP]:
         direction = "up"
-        racecar_rect.y -= 3
+        racecar_rect.y -= 2
     if keys[pygame.K_DOWN]:
-        direction = "schraeg"
-        racecar_rect.y += 3
+        direction = "down"
+        racecar_rect.y += 2
+    if keys[pygame.K_1]:
+        pygame.transform.rotate(current_srfc, 2)
 
-    current_srfc, hitbox_adjust = car_sprites[direction]
+    #current_srfc, hitbox_adjust = car_sprites[direction]
 
     center = racecar_rect.center
     racecar_rect = current_srfc.get_rect(center=center)
